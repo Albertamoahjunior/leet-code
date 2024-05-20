@@ -8,11 +8,25 @@ This repository contains a C++ class named `Solution` which includes a method fo
 
 This class provides a method to compute the Hamming Weight of an integer.
 
-#### Public Members:
-- `int weight`: A variable to store the count of set bits (1s) in the binary representation of the number.
-
 #### Public Methods:
 - `int hammingWeight(int n)`: This method takes an integer `n` as input and returns the Hamming Weight of the integer.
+
+## Method Details
+
+### `hammingWeight(int n)`
+
+- **Parameter**: 
+  - `int n`: The integer whose Hamming Weight is to be calculated.
+- **Returns**: 
+  - `int`: The number of `1`s in the binary representation of `n`.
+
+#### Method Implementation
+
+The method initializes a variable `weight` to zero, which will count the number of set bits (1s). It then uses a while loop to check each bit of the integer `n`:
+- If the least significant bit of `n` (i.e., `n % 2`) is `1`, it increments the `weight`.
+- It then divides `n` by `2` to shift the bits to the right.
+- The loop continues until `n` becomes zero.
+- Finally, the method returns the `weight`.
 
 ## Usage
 
@@ -32,8 +46,8 @@ using namespace std;
 
 class Solution {
 public:
-    int weight = 0; // Set a variable to count the set bits
     int hammingWeight(int n) {
+        int weight = 0; // Set a variable to count the set bits
         // Set up a while loop to check each bit
         while (n > 0) {
             if (n % 2 == 1) {
@@ -41,7 +55,6 @@ public:
             }
             n = n / 2;
         }
-
         // Return the weight
         return weight;
     }
@@ -70,4 +83,3 @@ Hamming Weight of 11 is: 3
    - If the least significant bit of `n` is `1` (i.e., `n % 2 == 1`), increment the `weight` by one.
    - Divide `n` by `2` to shift right and check the next bit.
 3. **Return Result**: After processing all bits, return the `weight`.
-

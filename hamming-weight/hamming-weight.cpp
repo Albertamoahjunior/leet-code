@@ -1,7 +1,7 @@
 class Solution {
 public:
-    int weight = 0; //set a variable to count the set variables
     int hammingWeight(int n) {
+	 int weight = 0; //set a variable to count the set variables
         //Set up while loop and find the modulo after which the number should be divided by 2 per every iteration
         while(n > 0){
             if(n%2 == 1){
